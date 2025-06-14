@@ -2,13 +2,9 @@
     "version": 2,
     "name": "BuoyantPysche",
     "builds": [
-      { "src": "index.js", "use": "@vercel/node" }
-    ],
-    "includeFiles": [
-      "lib/**"
+       { "src": "index.js", "use": "@vercel/node" }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "/index.js" }
+       { "src": "/(.*)", "dest": "/index.js" }
     ]
-  }
-  
+}
