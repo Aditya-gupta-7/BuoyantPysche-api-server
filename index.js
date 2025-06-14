@@ -6,10 +6,13 @@ import webhookRouter from "./routes/webhook.route.js"
 import connectDB from "./lib/connectDb.js"
 import { clerkMiddleware, requireAuth } from "@clerk/express"
 import cors from "cors"
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 
-app.use(cors(process.env.CLIENT_URL));
+
+app.use(cors());
 app.use(clerkMiddleware());
 app.use("/webhooks", webhookRouter);
 
