@@ -9,7 +9,8 @@ import cors from "cors"
 import dotenv from 'dotenv';
 
 const allowedOrigins = [
-  "https://buoyant-pysche-ayvo9tnt3-aditya-guptas-projects-21e8780d.vercel.app", // your frontend
+   "https://buoyant-pysche-ayvo9tnt3-aditya-guptas-projects-21e8780d.vercel.app",
+  "https://buoyant-pysche-eez7yn2l8-aditya-guptas-projects-21e8780d.vercel.app"
 ];
 
 dotenv.config();
