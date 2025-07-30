@@ -7,25 +7,33 @@ import connectDB from "./lib/connectDB.js"
 import { clerkMiddleware, requireAuth } from "@clerk/express"
 import cors from "cors"
 import dotenv from 'dotenv';
+
+const allowedOrigins = [
+  "https://buoyant-pysche-ayvo9tnt3-aditya-guptas-projects-21e8780d.vercel.app", // your frontend
+];
+
 dotenv.config();
 
 const app = express();
 
 
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 app.use(clerkMiddleware());
 app.use("/webhooks", webhookRouter);
 
 app.use(express.json());
 
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin","*");
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-});
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin","*");
+//     res.header(
+//         "Access-Control-Allow-Headers",
+//         "Origin, X-Requested-With, Content-Type, Accept"
+//     );
+//     next();
+// });
 
 
 // app.get("/auth-state", (req, res) => {
