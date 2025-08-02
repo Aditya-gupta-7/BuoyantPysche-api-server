@@ -9,7 +9,7 @@ import cors from "cors"
 import dotenv from 'dotenv';
 
 const allowedOrigins = [
-   "https://buoyant-pysche.vercel.app/"
+   "https://buoyant-pysche.vercel.app"
 ];
 
 dotenv.config();
@@ -21,10 +21,11 @@ app.use(cors({
   origin: allowedOrigins,
   credentials: true,
 }));
+
+app.use(express.json());
 app.use(clerkMiddleware());
 app.use("/webhooks", webhookRouter);
 
-app.use(express.json());
 
 // app.use(function (req, res, next) {
 //     res.header("Access-Control-Allow-Origin","*");
